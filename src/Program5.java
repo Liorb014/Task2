@@ -3,23 +3,26 @@ import java.util.Scanner;
 public class Program5 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int number;
+        int userInput;
         do {
             System.out.println("pleas enter a number for diagnose if is from fibonacci series :");
-            number = scanner.nextInt();
-        }while (number<0);
-        boolean answer = false;
-        int series = 0;
-        for (int i=0; i< number;i++){
-            for (int j =0;j<number;j+=i){
-                series=j;
-                System.out.print(series +" ,");
-            }
+            userInput = scanner.nextInt();
+        }while (userInput<0);
+        int number1 = 0;
+        int number2 = 1;
+        int nextNumber = 0;
+        while(nextNumber < userInput){
+            nextNumber = number1 + number2;
+            number1 = number2;
+            number2 = nextNumber;
         }
-        if (number == series ){
-            answer=true;
+        if(nextNumber == userInput)
+        {
+            System.out.println("The number "+ userInput +" belongs to fibonacci arithmetic progression");
         }
-        System.out.println(answer);
-
+        else
+        {
+            System.out.println("The number "+ userInput + " doesn't belong to fibonacci arithmetic progression");
+        }
     }
 }
